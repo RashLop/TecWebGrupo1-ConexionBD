@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+/Grupo1Tarea/.vscode/
+
+# Build outputs
+bin/
+obj/
+Debug/
+Release/
+
+# Otros
+TestResult*/
+*.nupkg
+*.log
+
+# Configuración temporal
+*.tmp
+*.temp

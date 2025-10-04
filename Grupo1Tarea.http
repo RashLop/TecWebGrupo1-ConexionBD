@@ -1,0 +1,6 @@
+@Grupo1Tarea_HostAddress = http://localhost:5136
+
+GET {{Grupo1Tarea_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
