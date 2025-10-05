@@ -1,4 +1,4 @@
-﻿using Grupo1Tarea.Models.dtos;
+﻿using Grupo1Tarea.Models;
 using Grupo1Tarea.Services;
 using Microsoft.AspNetCore.Mvc;
 

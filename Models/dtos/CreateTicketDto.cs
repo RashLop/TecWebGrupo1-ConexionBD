@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Grupo1Tarea.Models.dtos
+namespace Grupo1Tarea.Models
 {
     public class TicketReadDto
     {

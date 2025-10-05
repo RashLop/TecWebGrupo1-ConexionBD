@@ -8,8 +8,13 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+    
 builder.Services.AddScoped<Grupo1Tarea.Services.IEventService, Grupo1Tarea.Services.EventService>();
 builder.Services.AddScoped<Grupo1Tarea.Repositories.IEventRepository, Grupo1Tarea.Repositories.EventRepository>();
+
+builder.Services.AddScoped<Grupo1Tarea.Services.ITicketService, Grupo1Tarea.Services.TicketService>();
+builder.Services.AddScoped<Grupo1Tarea.Repositories.ITicketRepository, Grupo1Tarea.Repositories.TicketRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

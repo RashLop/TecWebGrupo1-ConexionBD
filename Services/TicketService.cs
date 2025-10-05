@@ -1,5 +1,4 @@
 ﻿using Grupo1Tarea.Models;
-using Grupo1Tarea.Models.dtos;
 using Grupo1Tarea.Repositories;
 
 namespace Grupo1Tarea.Services
@@ -9,19 +8,17 @@ namespace Grupo1Tarea.Services
         private readonly ITicketRepository _repo;
         public TicketService(ITicketRepository repo) => _repo = repo;
 
-        public async Task<IEnumerable<TicketReadDto>> GetAllAsync()
+        public async Task<IEnumerable<Ticket>> GetAllAsync()
         {
-            var items = await _repo.GetAllAsync();
-            return items.Select(t => new TicketReadDto(t.Id, t.Notes));
+            return await _repo.GetAllAsync();
         }
 
-        public async Task<TicketReadDto?> GetByIdAsync(Guid id)
+        public async Task<Ticket?> GetByIdAsync(Guid id)
         {
-            var t = await _repo.GetByIdAsync(id);
-            return t == null ? null : new TicketReadDto(t.Id, t.Notes);
+            return await _repo.GetByIdAsync(id);
         }
 
-        public async Task<TicketReadDto> CreateAsync(CreateTicketDto dto)
+        public async Task<Ticket> CreateAsync(CreateTicketDto dto)
         {
             var entity = new Ticket
             {
@@ -32,7 +29,7 @@ namespace Grupo1Tarea.Services
             };
             await _repo.AddAsync(entity);
             await _repo.SaveChangesAsync();
-            return new TicketReadDto(entity.Id, entity.Notes);
+            return entity; 
         }
 
         public async Task<bool> UpdateAsync(Guid id, UpdateTicketDto dto)
@@ -43,7 +40,6 @@ namespace Grupo1Tarea.Services
             existing.Notes = dto.Notes?.Select(n => n.Trim())
                                       .Where(n => !string.IsNullOrWhiteSpace(n))
                                       .ToArray();
-
             await _repo.UpdateAsync(existing);
             await _repo.SaveChangesAsync();
             return true;
