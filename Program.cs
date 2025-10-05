@@ -1,3 +1,4 @@
+using Grupo1Tarea.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -5,7 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddControllers(); 
 builder.Services.AddOpenApi();
-
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddScoped<Grupo1Tarea.Services.IEventService, Grupo1Tarea.Services.EventService>();
+builder.Services.AddScoped<Grupo1Tarea.Repositories.IEventRepository, Grupo1Tarea.Repositories.EventRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
