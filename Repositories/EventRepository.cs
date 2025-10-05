@@ -14,6 +14,7 @@ namespace Grupo1Tarea.Repositories
         public async Task Add(Event evt)
         {
             await _context.Events.AddAsync(evt);
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task Delete(Guid id)
@@ -23,6 +24,7 @@ namespace Grupo1Tarea.Repositories
             {
                 _context.Events.Remove(evt);
             }
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task<IEnumerable<Event>> GetAll()
