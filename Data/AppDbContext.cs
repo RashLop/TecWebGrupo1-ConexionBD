@@ -8,5 +8,16 @@ namespace Grupo1Tarea.Data
         {
 
         }
+        public DbSet<Event> Events => Set<Event>();
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Event>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.Property(x => x.Title).IsRequired().HasMaxLength(200);
+                e.Property(x => x.Date).IsRequired();
+                e.Property(x => x.Capacity).IsRequired();
+            });
+        }
     }
 }
