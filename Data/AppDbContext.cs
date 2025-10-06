@@ -9,6 +9,8 @@ namespace Grupo1Tarea.Data
         public DbSet<Ticket> Tickets => Set<Ticket>();
         public DbSet<Event> Events => Set<Event>();
 
+        public DbSet<Guest> Guests => Set<Guest>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
