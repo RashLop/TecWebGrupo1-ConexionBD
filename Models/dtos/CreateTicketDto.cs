@@ -2,20 +2,20 @@
 
 namespace Grupo1Tarea.Models
 {
-    public class TicketReadDto
+    public record TicketReadDto
     {
         public Guid Id { get; set; }
         public string[]? Notes { get; set; }
     }
 
-    public class CreateTicketDto
+    public record CreateTicketDto
     {
         
         [MaxLength(20)]
         public string[]? Notes { get; set; }
     }
 
-    public class UpdateTicketDto
+    public record UpdateTicketDto
     {
         [MaxLength(20)]
         public string[]? Notes { get; set; }
