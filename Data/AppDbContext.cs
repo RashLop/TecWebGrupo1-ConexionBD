@@ -13,20 +13,26 @@ namespace Grupo1Tarea.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Ticket>(b =>
             {
                 b.ToTable("Tickets");
                 b.HasKey(x => x.Id);
                 b.Property(x => x.Notes).HasColumnType("text[]");
             });
-                        modelBuilder.Entity<Event>(e =>
+            modelBuilder.Entity<Event>(e =>
             {
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Title).IsRequired().HasMaxLength(200);
                 e.Property(x => x.Date).IsRequired();
                 e.Property(x => x.Capacity).IsRequired();
             });
+            modelBuilder.Entity<Guest>(g =>
+            {
+                g.HasKey(x => x.Id);
+                g.Property(x => x.FullName).IsRequired().HasMaxLength(50);
+                g.Property(x => x.Confirmed).IsRequired();
+            }
+            ); 
         }
     }
 }

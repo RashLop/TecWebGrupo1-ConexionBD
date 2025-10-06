@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Grupo1Tarea.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251005231607_InitialCreateV2")]
-    partial class InitialCreateV2
+    [Migration("20251006132204_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,25 @@ namespace Grupo1Tarea.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Grupo1Tarea.Models.Guest", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("Confirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Guests");
                 });
 
             modelBuilder.Entity("Grupo1Tarea.Models.Ticket", b =>

@@ -44,6 +44,25 @@ namespace Grupo1Tarea.Migrations
                     b.ToTable("Events");
                 });
 
+            modelBuilder.Entity("Grupo1Tarea.Models.Guest", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("Confirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Guests");
+                });
+
             modelBuilder.Entity("Grupo1Tarea.Models.Ticket", b =>
                 {
                     b.Property<Guid>("Id")

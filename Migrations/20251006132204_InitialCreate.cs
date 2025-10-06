@@ -24,6 +24,31 @@ namespace Grupo1Tarea.Migrations
                 {
                     table.PrimaryKey("PK_Events", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Guests",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    FullName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Confirmed = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Guests", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tickets",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Notes = table.Column<string[]>(type: "text[]", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -31,6 +56,12 @@ namespace Grupo1Tarea.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "Guests");
+
+            migrationBuilder.DropTable(
+                name: "Tickets");
         }
     }
 }

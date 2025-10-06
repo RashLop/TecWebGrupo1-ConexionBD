@@ -9,4 +9,7 @@
 |  **GET**  | /api/tickets/id |Returns a single ticket by Id|
 |  **POST**  | /api/tickets | Creates a new ticket and inserts db |
 |  **Delete**  | /api/tickets/id | Delete an ticket from the db id|
-
+|  **GET**  | /api/guests | Return the list all guests from db|
+|  **GET**  | /api/guests/id |Returns a single guest by Id|
+|  **POST**  | /api/guests | Creates a new guests and inserts db |
+|  **Delete**  | /api/guests/id | Delete an ticket from the db id|
