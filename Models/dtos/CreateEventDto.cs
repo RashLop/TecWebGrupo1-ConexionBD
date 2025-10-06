@@ -2,7 +2,7 @@
 
 namespace Grupo1Tarea.Models.dtos
 {
-    public class CreateEventDto
+    public record CreateEventDto
     {
         [Required, StringLength(200)]
         public string Title { get; set; } = string.Empty;
