@@ -15,6 +15,8 @@ builder.Services.AddScoped<Grupo1Tarea.Repositories.IEventRepository, Grupo1Tare
 builder.Services.AddScoped<Grupo1Tarea.Services.ITicketService, Grupo1Tarea.Services.TicketService>();
 builder.Services.AddScoped<Grupo1Tarea.Repositories.ITicketRepository, Grupo1Tarea.Repositories.TicketRepository>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
